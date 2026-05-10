@@ -22,18 +22,29 @@ The goal is to uncover **root causes of financial leakage**, **operational risks
 ## Project Structure
 
 ```
-claim-denials-optimization/
+Healthcare-Claim-Denial-Analytics/
+│──Excel_Analysis
+    ├──Hospital_Claim_Audit.xlsx
+
+├── Raw_data/
+│   ├── Billing_Table.xlsx
+│   ├── Clinical_Table.xlsx
+│   └── Insurance_Table.xlsx
+|   |──Denial_Reason_Lookup.xlsx
+|   |──Patients_Table.xlsx
+
+|───SQL_Scripts/
+│   ├── 01_schema_setup.sql
+│   ├── 02_etl_transformations.sql
+│   └── 03_business_analytics.sql
+    
 │
-├── data/
-│   ├── Billing_Table.csv
-│   ├── Clinical_Table.csv
-│   └── Insurance_Table.csv
-│
-├── outputs/
+├── PowerBI_Dashboard/
 │   ├── claim-denials-dashboard.pbix
-│   ├── dashboard_page1_executive.png
-│   ├── dashboard_page2_operations.png
-│   └── dashboard_page3_payer_scorecard.png
+|   |──Final Report.pdf
+│   ├── page1_executive.png
+│   ├── page2_operations.png
+│   └── page3_payer_scorecard.png
 │
 ├── README.md
 ```
@@ -79,17 +90,19 @@ Built an interactive **3-page dashboard** to present enterprise-grade insights:
 ## Dashboard Preview
 
 ### Page 1: Executive Revenue Overview
-![Page 1](outputs/dashboard_page1_executive.png)
+![Page 1](PowerBI_Dashboard/page1_executive_view.png)
+
 
 ---
 
 ### Page 2: Clinical Operations & Risk Drilldown
-![Page 2](outputs/dashboard_page2_operations.png)
+![Page 2](PowerBI_Dashboard/page2_operations.png)
+
 
 ---
 
 ### Page 3: Insurance Performance & Denials Analysis
-![Page 3](outputs/dashboard_page3_payer_scorecard.png)
+![Page 3](PowerBI_Dashboard/page3_payer_scorecard.png)
 
 ---
 
