@@ -133,7 +133,7 @@ Built an interactive **3-page dashboard** to present enterprise-grade insights:
 3. Open the dashboard:
 
 ```bash
-outputs/claim-denials-dashboard.pbix
+PowerBI_Dashboard\Output.pbix
 ```
 
 ---
