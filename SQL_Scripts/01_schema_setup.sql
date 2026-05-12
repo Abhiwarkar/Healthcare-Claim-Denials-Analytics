@@ -97,4 +97,3 @@ CREATE TABLE Billing (
     CONSTRAINT fk_bill_denial FOREIGN KEY (DenialCode) REFERENCES Denial_Reason_Lookup(DenialCode)
 );
 
-PROMPT Database Schema setup completed successfully.
