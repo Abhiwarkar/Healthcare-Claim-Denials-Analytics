@@ -1,10 +1,10 @@
 -- =========================================================================
--- PROJECT: Hospital Revenue Cycle & Claim Denials Analytics
+
 -- DESCRIPTION: Phase 2 - ETL Data Pipelines & Advanced Transformations
--- DESCRIPTION: Migrates raw staging data to production with cleanups.
+
 -- =========================================================================
 
-PROMPT Starting ETL Transformations...
+
 
 -- 1. TRANSFORM PATIENTS: Remove duplicates, trim whitespace, standardize text casing
 INSERT INTO Patients (PatientID, Name, Age, Gender, City)
@@ -76,4 +76,3 @@ WHERE b.ClaimID IS NOT NULL;
 -- 6. COMMIT ALL DATA IN A SINGLE TRANSACTION
 COMMIT;
 
-PROMPT ETL Transformations and load complete.
