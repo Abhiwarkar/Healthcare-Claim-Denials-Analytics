@@ -1,10 +1,10 @@
 -- =========================================================================
--- PROJECT: Hospital Revenue Cycle & Claim Denials Analytics
+
 -- DESCRIPTION: Phase 3 - Advanced Business Analytics (CFO View)
 -- =========================================================================
 
--- Q1: HIGH LEVEL KPI (Total Billed Revenue, Denied Revenue & Denial Rate)
-PROMPT Running KPI Query 1 (Revenue Overview)...
+-- 1: HIGH LEVEL KPI (Total Billed Revenue, Denied Revenue & Denial Rate)
+
 SELECT 
     SUM(ClaimAmount) as Total_Billed_Revenue,
     SUM(CASE WHEN ClaimStatus = 'DENIED' THEN ClaimAmount ELSE 0 END) as Total_Denied_Revenue,
@@ -12,8 +12,8 @@ SELECT
 FROM Billing;
 
 
--- Q2: TOP DENIAL REASONS (Financial Loss Contribution Rank)
-PROMPT Running KPI Query 2 (Top Denial Reasons)...
+-- 2: TOP DENIAL REASONS (Financial Loss Contribution Rank)
+
 SELECT 
     d.Meaning as Denial_Reason,
     COUNT(b.ClaimID) as Total_Cases,
@@ -26,7 +26,7 @@ GROUP BY d.Meaning
 ORDER BY Leaked_Revenue DESC;
 
 
--- Q3: RUNNING TOTALS (Department-wise Cumulative Loss Trend over Months)
+-- 3: RUNNING TOTALS (Department-wise Cumulative Loss Trend over Months)
 PROMPT Running Analytics Query 3 (Running Totals using CTEs & Window Functions)...
 WITH Monthly_Denials AS (
     SELECT 
@@ -50,7 +50,7 @@ FROM Monthly_Denials
 ORDER BY Department, Admission_Month;
 
 
--- Q4: PATIENT RISK PROFILING (Demographic Segmentations & Loss Correlation)
+-- 4: PATIENT RISK PROFILING (Demographic Segmentations & Loss Correlation)
 PROMPT Running Analytics Query 4 (Demographic Risk Profiles)...
 SELECT 
     Age_Group,
@@ -80,7 +80,7 @@ GROUP BY Age_Group, Gender
 ORDER BY Segment_Denial_Rate DESC;
 
 
--- Q5: INSURANCE PERFORMANCE BENCHMARKING (Dense Ranking of Insurance Portfolios)
+-- 5: INSURANCE PERFORMANCE BENCHMARKING (Dense Ranking of Insurance Portfolios)
 PROMPT Running Analytics Query 5 (Insurance Benchmarking using DENSE_RANK)...
 WITH Ins_Stats AS (
     SELECT 
