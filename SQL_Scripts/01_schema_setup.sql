@@ -1,12 +1,9 @@
 -- =========================================================================
--- PROJECT: Hospital Revenue Cycle & Claim Denials Analytics
--- AUTHOR: [Your Name]
 -- DESCRIPTION: Phase 1 - Schema Creation and Staging Area Setup
 -- DATABASE ENGINE: Oracle SQL (23ai Free / Enterprise)
 -- =========================================================================
 
--- 1. DROP EXISTING TABLES (If any to avoid conflicts during deployment)
-PROMPT Dropping existing tables...
+-- 1. DROP EXISTING TABLES .
 DROP TABLE Billing CASCADE CONSTRAINTS;
 DROP TABLE Clinical CASCADE CONSTRAINTS;
 DROP TABLE Patients CASCADE CONSTRAINTS;
@@ -19,7 +16,7 @@ DROP TABLE STG_BILLING CASCADE CONSTRAINTS;
 DROP TABLE STG_INSURANCE CASCADE CONSTRAINTS;
 DROP TABLE STG_DENIAL_REASON_LOOKUP CASCADE CONSTRAINTS;
 
--- 2. CREATE STAGING TABLES (ELT Landing Layer - No constraints)
+-- 2. CREATE STAGING TABLES 
 PROMPT Creating Staging Tables...
 CREATE TABLE STG_PATIENTS (
     PatientID VARCHAR2(50),
@@ -56,8 +53,7 @@ CREATE TABLE STG_DENIAL_REASON_LOOKUP (
     Meaning VARCHAR2(200)
 );
 
--- 3. CREATE PRODUCTION TABLES (Clean, Optimized, Relational Layer)
-PROMPT Creating Core Production Tables...
+-- 3. CREATE PRODUCTION TABLES 
 CREATE TABLE Patients (
     PatientID VARCHAR2(10) PRIMARY KEY,
     Name VARCHAR2(50) NOT NULL,
